@@ -4,15 +4,15 @@ const formatDate = require('../services/dateService')
 
 // Route for dates
 router.get('/:date?', (req, res) => {
-    const date_string = req.params.date;
+    const dateString = req.params.date;
 
     let date;
-    if (!date_string) {
+    if (!dateString) {
         date = new Date();
-    } else if (/\d{5,}/.test(date_string)) {
-        date = new Date(parseInt(date_string));
+    } else if (isNaN(Date.parse(dateString))) {
+        date = new Date(parseInt(dateString));
     } else {
-        date = new Date(date_string);
+        date = new Date(dateString);
     }
 
     res.json(formatDate(date));
