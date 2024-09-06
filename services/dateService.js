@@ -1,7 +1,7 @@
 const formatDate = (date) => {
     if (!isNaN(date.getTime())) {
         return {
-            unix: date.getTime() / 1000,
+            unix: date.getTime(),
             utc: date.toUTCString()
         };
     }

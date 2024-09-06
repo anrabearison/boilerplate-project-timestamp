@@ -9,8 +9,8 @@ router.get('/:date?', (req, res) => {
     let date;
     if (!dateString) {
         date = new Date();
-    } else if (isNaN(Date.parse(dateString))) {
-        date = new Date(Number(dateString) * 1000);
+    } else if (!isNaN(Number(dateString))) {
+        date = new Date(Number(dateString));
     } else {
         date = new Date(dateString);
     }
